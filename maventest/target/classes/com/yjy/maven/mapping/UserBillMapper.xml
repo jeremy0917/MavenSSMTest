@@ -1,0 +1,368 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.yjy.maven.dao.UserBillMapper">
+  <resultMap id="BaseResultMap" type="com.yjy.maven.bean.UserBill">
+    <result column="EPARCHY_CODE" jdbcType="CHAR" property="eparchyCode" />
+    <result column="NET_TYPE_CODE" jdbcType="VARCHAR" property="netTypeCode" />
+    <result column="SERIAL_NUMBER" jdbcType="VARCHAR" property="serialNumber" />
+    <result column="BILL_ID" jdbcType="DECIMAL" property="billId" />
+    <result column="ACCT_ID" jdbcType="DECIMAL" property="acctId" />
+    <result column="USER_ID" jdbcType="DECIMAL" property="userId" />
+    <result column="PARTITION_ID" jdbcType="DECIMAL" property="partitionId" />
+    <result column="CYCLE_ID" jdbcType="DECIMAL" property="cycleId" />
+    <result column="INTEGRATE_ITEM_CODE" jdbcType="DECIMAL" property="integrateItemCode" />
+    <result column="FEE" jdbcType="DECIMAL" property="fee" />
+    <result column="BALANCE" jdbcType="DECIMAL" property="balance" />
+    <result column="PRINT_FEE" jdbcType="DECIMAL" property="printFee" />
+    <result column="B_DISCNT" jdbcType="DECIMAL" property="bDiscnt" />
+    <result column="A_DISCNT" jdbcType="DECIMAL" property="aDiscnt" />
+    <result column="ADJUST_BEFORE" jdbcType="DECIMAL" property="adjustBefore" />
+    <result column="ADJUST_AFTER" jdbcType="DECIMAL" property="adjustAfter" />
+    <result column="LATE_FEE" jdbcType="DECIMAL" property="lateFee" />
+    <result column="LATE_BALANCE" jdbcType="DECIMAL" property="lateBalance" />
+    <result column="LATECAL_DATE" jdbcType="TIMESTAMP" property="latecalDate" />
+    <result column="CANPAY_TAG" jdbcType="CHAR" property="canpayTag" />
+    <result column="PAY_TAG" jdbcType="CHAR" property="payTag" />
+    <result column="VERSION_NO" jdbcType="DECIMAL" property="versionNo" />
+    <result column="UPDATE_TIME" jdbcType="TIMESTAMP" property="updateTime" />
+    <result column="UPDATE_DEPART_ID" jdbcType="CHAR" property="updateDepartId" />
+    <result column="UPDATE_STAFF_ID" jdbcType="CHAR" property="updateStaffId" />
+    <result column="CHARGE_ID" jdbcType="DECIMAL" property="chargeId" />
+    <result column="WRITEOFF_FEE1" jdbcType="DECIMAL" property="writeoffFee1" />
+    <result column="WRITEOFF_FEE2" jdbcType="DECIMAL" property="writeoffFee2" />
+    <result column="WRITEOFF_FEE3" jdbcType="DECIMAL" property="writeoffFee3" />
+    <result column="DRECV_FEE2" jdbcType="DECIMAL" property="drecvFee2" />
+    <result column="RSRV_FEE1" jdbcType="DECIMAL" property="rsrvFee1" />
+    <result column="RSRV_FEE2" jdbcType="DECIMAL" property="rsrvFee2" />
+    <result column="RSRV_FEE3" jdbcType="DECIMAL" property="rsrvFee3" />
+    <result column="RSRV_INFO1" jdbcType="VARCHAR" property="rsrvInfo1" />
+    <result column="RSRV_INFO2" jdbcType="VARCHAR" property="rsrvInfo2" />
+    <result column="USER_BEGIN_DATE" jdbcType="DECIMAL" property="userBeginDate" />
+    <result column="USER_END_DATE" jdbcType="DECIMAL" property="userEndDate" />
+    <result column="ACCT_BEGIN_DATE" jdbcType="DECIMAL" property="acctBeginDate" />
+    <result column="ACCT_DAY" jdbcType="DECIMAL" property="acctDay" />
+    <result column="NO_TAX_FEE" jdbcType="DECIMAL" property="noTaxFee" />
+    <result column="TAX_FEE" jdbcType="DECIMAL" property="taxFee" />
+    <result column="TAX_RATE" jdbcType="DECIMAL" property="taxRate" />
+    <result column="MIX_ITEM_ID" jdbcType="DECIMAL" property="mixItemId" />
+    <result column="NO_TAX_BALANCE" jdbcType="DECIMAL" property="noTaxBalance" />
+    <result column="TAX_BALANCE" jdbcType="DECIMAL" property="taxBalance" />
+  </resultMap>
+  <insert id="insert" parameterType="com.yjy.maven.bean.UserBill">
+    insert into TS_B_BILL (EPARCHY_CODE, NET_TYPE_CODE, SERIAL_NUMBER, 
+      BILL_ID, ACCT_ID, USER_ID, 
+      PARTITION_ID, CYCLE_ID, INTEGRATE_ITEM_CODE, 
+      FEE, BALANCE, PRINT_FEE, 
+      B_DISCNT, A_DISCNT, ADJUST_BEFORE, 
+      ADJUST_AFTER, LATE_FEE, LATE_BALANCE, 
+      LATECAL_DATE, CANPAY_TAG, PAY_TAG, 
+      VERSION_NO, UPDATE_TIME, UPDATE_DEPART_ID, 
+      UPDATE_STAFF_ID, CHARGE_ID, WRITEOFF_FEE1, 
+      WRITEOFF_FEE2, WRITEOFF_FEE3, DRECV_FEE2, 
+      RSRV_FEE1, RSRV_FEE2, RSRV_FEE3, 
+      RSRV_INFO1, RSRV_INFO2, USER_BEGIN_DATE, 
+      USER_END_DATE, ACCT_BEGIN_DATE, ACCT_DAY, 
+      NO_TAX_FEE, TAX_FEE, TAX_RATE, 
+      MIX_ITEM_ID, NO_TAX_BALANCE, TAX_BALANCE
+      )
+    values (#{eparchyCode,jdbcType=CHAR}, #{netTypeCode,jdbcType=VARCHAR}, #{serialNumber,jdbcType=VARCHAR}, 
+      #{billId,jdbcType=DECIMAL}, #{acctId,jdbcType=DECIMAL}, #{userId,jdbcType=DECIMAL}, 
+      #{partitionId,jdbcType=DECIMAL}, #{cycleId,jdbcType=DECIMAL}, #{integrateItemCode,jdbcType=DECIMAL}, 
+      #{fee,jdbcType=DECIMAL}, #{balance,jdbcType=DECIMAL}, #{printFee,jdbcType=DECIMAL}, 
+      #{bDiscnt,jdbcType=DECIMAL}, #{aDiscnt,jdbcType=DECIMAL}, #{adjustBefore,jdbcType=DECIMAL}, 
+      #{adjustAfter,jdbcType=DECIMAL}, #{lateFee,jdbcType=DECIMAL}, #{lateBalance,jdbcType=DECIMAL}, 
+      #{latecalDate,jdbcType=TIMESTAMP}, #{canpayTag,jdbcType=CHAR}, #{payTag,jdbcType=CHAR}, 
+      #{versionNo,jdbcType=DECIMAL}, #{updateTime,jdbcType=TIMESTAMP}, #{updateDepartId,jdbcType=CHAR}, 
+      #{updateStaffId,jdbcType=CHAR}, #{chargeId,jdbcType=DECIMAL}, #{writeoffFee1,jdbcType=DECIMAL}, 
+      #{writeoffFee2,jdbcType=DECIMAL}, #{writeoffFee3,jdbcType=DECIMAL}, #{drecvFee2,jdbcType=DECIMAL}, 
+      #{rsrvFee1,jdbcType=DECIMAL}, #{rsrvFee2,jdbcType=DECIMAL}, #{rsrvFee3,jdbcType=DECIMAL}, 
+      #{rsrvInfo1,jdbcType=VARCHAR}, #{rsrvInfo2,jdbcType=VARCHAR}, #{userBeginDate,jdbcType=DECIMAL}, 
+      #{userEndDate,jdbcType=DECIMAL}, #{acctBeginDate,jdbcType=DECIMAL}, #{acctDay,jdbcType=DECIMAL}, 
+      #{noTaxFee,jdbcType=DECIMAL}, #{taxFee,jdbcType=DECIMAL}, #{taxRate,jdbcType=DECIMAL}, 
+      #{mixItemId,jdbcType=DECIMAL}, #{noTaxBalance,jdbcType=DECIMAL}, #{taxBalance,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.yjy.maven.bean.UserBill">
+    insert into TS_B_BILL
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="eparchyCode != null">
+        EPARCHY_CODE,
+      </if>
+      <if test="netTypeCode != null">
+        NET_TYPE_CODE,
+      </if>
+      <if test="serialNumber != null">
+        SERIAL_NUMBER,
+      </if>
+      <if test="billId != null">
+        BILL_ID,
+      </if>
+      <if test="acctId != null">
+        ACCT_ID,
+      </if>
+      <if test="userId != null">
+        USER_ID,
+      </if>
+      <if test="partitionId != null">
+        PARTITION_ID,
+      </if>
+      <if test="cycleId != null">
+        CYCLE_ID,
+      </if>
+      <if test="integrateItemCode != null">
+        INTEGRATE_ITEM_CODE,
+      </if>
+      <if test="fee != null">
+        FEE,
+      </if>
+      <if test="balance != null">
+        BALANCE,
+      </if>
+      <if test="printFee != null">
+        PRINT_FEE,
+      </if>
+      <if test="bDiscnt != null">
+        B_DISCNT,
+      </if>
+      <if test="aDiscnt != null">
+        A_DISCNT,
+      </if>
+      <if test="adjustBefore != null">
+        ADJUST_BEFORE,
+      </if>
+      <if test="adjustAfter != null">
+        ADJUST_AFTER,
+      </if>
+      <if test="lateFee != null">
+        LATE_FEE,
+      </if>
+      <if test="lateBalance != null">
+        LATE_BALANCE,
+      </if>
+      <if test="latecalDate != null">
+        LATECAL_DATE,
+      </if>
+      <if test="canpayTag != null">
+        CANPAY_TAG,
+      </if>
+      <if test="payTag != null">
+        PAY_TAG,
+      </if>
+      <if test="versionNo != null">
+        VERSION_NO,
+      </if>
+      <if test="updateTime != null">
+        UPDATE_TIME,
+      </if>
+      <if test="updateDepartId != null">
+        UPDATE_DEPART_ID,
+      </if>
+      <if test="updateStaffId != null">
+        UPDATE_STAFF_ID,
+      </if>
+      <if test="chargeId != null">
+        CHARGE_ID,
+      </if>
+      <if test="writeoffFee1 != null">
+        WRITEOFF_FEE1,
+      </if>
+      <if test="writeoffFee2 != null">
+        WRITEOFF_FEE2,
+      </if>
+      <if test="writeoffFee3 != null">
+        WRITEOFF_FEE3,
+      </if>
+      <if test="drecvFee2 != null">
+        DRECV_FEE2,
+      </if>
+      <if test="rsrvFee1 != null">
+        RSRV_FEE1,
+      </if>
+      <if test="rsrvFee2 != null">
+        RSRV_FEE2,
+      </if>
+      <if test="rsrvFee3 != null">
+        RSRV_FEE3,
+      </if>
+      <if test="rsrvInfo1 != null">
+        RSRV_INFO1,
+      </if>
+      <if test="rsrvInfo2 != null">
+        RSRV_INFO2,
+      </if>
+      <if test="userBeginDate != null">
+        USER_BEGIN_DATE,
+      </if>
+      <if test="userEndDate != null">
+        USER_END_DATE,
+      </if>
+      <if test="acctBeginDate != null">
+        ACCT_BEGIN_DATE,
+      </if>
+      <if test="acctDay != null">
+        ACCT_DAY,
+      </if>
+      <if test="noTaxFee != null">
+        NO_TAX_FEE,
+      </if>
+      <if test="taxFee != null">
+        TAX_FEE,
+      </if>
+      <if test="taxRate != null">
+        TAX_RATE,
+      </if>
+      <if test="mixItemId != null">
+        MIX_ITEM_ID,
+      </if>
+      <if test="noTaxBalance != null">
+        NO_TAX_BALANCE,
+      </if>
+      <if test="taxBalance != null">
+        TAX_BALANCE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="eparchyCode != null">
+        #{eparchyCode,jdbcType=CHAR},
+      </if>
+      <if test="netTypeCode != null">
+        #{netTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="serialNumber != null">
+        #{serialNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="billId != null">
+        #{billId,jdbcType=DECIMAL},
+      </if>
+      <if test="acctId != null">
+        #{acctId,jdbcType=DECIMAL},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=DECIMAL},
+      </if>
+      <if test="partitionId != null">
+        #{partitionId,jdbcType=DECIMAL},
+      </if>
+      <if test="cycleId != null">
+        #{cycleId,jdbcType=DECIMAL},
+      </if>
+      <if test="integrateItemCode != null">
+        #{integrateItemCode,jdbcType=DECIMAL},
+      </if>
+      <if test="fee != null">
+        #{fee,jdbcType=DECIMAL},
+      </if>
+      <if test="balance != null">
+        #{balance,jdbcType=DECIMAL},
+      </if>
+      <if test="printFee != null">
+        #{printFee,jdbcType=DECIMAL},
+      </if>
+      <if test="bDiscnt != null">
+        #{bDiscnt,jdbcType=DECIMAL},
+      </if>
+      <if test="aDiscnt != null">
+        #{aDiscnt,jdbcType=DECIMAL},
+      </if>
+      <if test="adjustBefore != null">
+        #{adjustBefore,jdbcType=DECIMAL},
+      </if>
+      <if test="adjustAfter != null">
+        #{adjustAfter,jdbcType=DECIMAL},
+      </if>
+      <if test="lateFee != null">
+        #{lateFee,jdbcType=DECIMAL},
+      </if>
+      <if test="lateBalance != null">
+        #{lateBalance,jdbcType=DECIMAL},
+      </if>
+      <if test="latecalDate != null">
+        #{latecalDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="canpayTag != null">
+        #{canpayTag,jdbcType=CHAR},
+      </if>
+      <if test="payTag != null">
+        #{payTag,jdbcType=CHAR},
+      </if>
+      <if test="versionNo != null">
+        #{versionNo,jdbcType=DECIMAL},
+      </if>
+      <if test="updateTime != null">
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateDepartId != null">
+        #{updateDepartId,jdbcType=CHAR},
+      </if>
+      <if test="updateStaffId != null">
+        #{updateStaffId,jdbcType=CHAR},
+      </if>
+      <if test="chargeId != null">
+        #{chargeId,jdbcType=DECIMAL},
+      </if>
+      <if test="writeoffFee1 != null">
+        #{writeoffFee1,jdbcType=DECIMAL},
+      </if>
+      <if test="writeoffFee2 != null">
+        #{writeoffFee2,jdbcType=DECIMAL},
+      </if>
+      <if test="writeoffFee3 != null">
+        #{writeoffFee3,jdbcType=DECIMAL},
+      </if>
+      <if test="drecvFee2 != null">
+        #{drecvFee2,jdbcType=DECIMAL},
+      </if>
+      <if test="rsrvFee1 != null">
+        #{rsrvFee1,jdbcType=DECIMAL},
+      </if>
+      <if test="rsrvFee2 != null">
+        #{rsrvFee2,jdbcType=DECIMAL},
+      </if>
+      <if test="rsrvFee3 != null">
+        #{rsrvFee3,jdbcType=DECIMAL},
+      </if>
+      <if test="rsrvInfo1 != null">
+        #{rsrvInfo1,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvInfo2 != null">
+        #{rsrvInfo2,jdbcType=VARCHAR},
+      </if>
+      <if test="userBeginDate != null">
+        #{userBeginDate,jdbcType=DECIMAL},
+      </if>
+      <if test="userEndDate != null">
+        #{userEndDate,jdbcType=DECIMAL},
+      </if>
+      <if test="acctBeginDate != null">
+        #{acctBeginDate,jdbcType=DECIMAL},
+      </if>
+      <if test="acctDay != null">
+        #{acctDay,jdbcType=DECIMAL},
+      </if>
+      <if test="noTaxFee != null">
+        #{noTaxFee,jdbcType=DECIMAL},
+      </if>
+      <if test="taxFee != null">
+        #{taxFee,jdbcType=DECIMAL},
+      </if>
+      <if test="taxRate != null">
+        #{taxRate,jdbcType=DECIMAL},
+      </if>
+      <if test="mixItemId != null">
+        #{mixItemId,jdbcType=DECIMAL},
+      </if>
+      <if test="noTaxBalance != null">
+        #{noTaxBalance,jdbcType=DECIMAL},
+      </if>
+      <if test="taxBalance != null">
+        #{taxBalance,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+    <select id="selectBillByUserId" resultMap="BaseResultMap" parameterType="com.yjy.maven.bean.UserBill" >
+    select 
+    	SERIAL_NUMBER
+    from TF_F_USER
+    where USER_ID = #{userId,jdbcType=DECIMAL}
+  </select>
+</mapper>

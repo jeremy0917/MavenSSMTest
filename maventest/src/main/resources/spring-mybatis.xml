@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"  
+    xmlns:context="http://www.springframework.org/schema/context"  
+    xmlns:mvc="http://www.springframework.org/schema/mvc"  
+    xsi:schemaLocation="http://www.springframework.org/schema/beans    
+                        http://www.springframework.org/schema/beans/spring-beans-3.1.xsd    
+                        http://www.springframework.org/schema/context    
+                        http://www.springframework.org/schema/context/spring-context-3.1.xsd    
+                        http://www.springframework.org/schema/mvc    
+                        http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">  
+    <!-- 自动扫描 -->  
+    <context:component-scan base-package="com.yjy.maven" />  
+    <!-- 引入配置文件 -->  
+    <bean id="propertyConfigurer"  
+        class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">  
+        <property name="location" value="classpath:jdbc.properties" />  
+    </bean>  
+  
+    <bean id="dataSourceA" class="org.apache.commons.dbcp.BasicDataSource"  
+        destroy-method="close">  
+        <property name="driverClassName" value="${driver}" />  
+        <property name="url" value="${url}" />  
+        <property name="username" value="${username}" />  
+        <property name="password" value="${password}" />  
+        <!-- 初始化连接大小 -->  
+        <property name="initialSize" value="${initialSize}"></property>  
+        <!-- 连接池最大数量 -->  
+        <property name="maxActive" value="${maxActive}"></property>  
+        <!-- 最大空闲值.当经过一个高峰时间后，连接池可以慢慢将已经用不到的连接慢慢释放一部分，一直减少到maxIdle为止 -->
+        <property name="maxIdle" value="${maxIdle}"></property>  
+        <!-- 最小空闲值.当空闲的连接数少于阀值时，连接池就会预申请去一些连接，以免洪峰来时来不及申请 -->
+        <property name="minIdle" value="${minIdle}"></property>  
+        <!-- 获取连接最大等待时间 -->  
+        <property name="maxWait" value="${maxWait}"></property>  
+    </bean>  
+    <bean id="dataSourceB" class="org.apache.commons.dbcp.BasicDataSource"  
+        destroy-method="close">  
+        <property name="driverClassName" value="${driver}" />  
+        <property name="url" value="${actpar1Url}" />  
+        <property name="username" value="${uop_act1_username}" />  
+        <property name="password" value="${uop_act1_password}" />  
+        <!-- 初始化连接大小 -->  
+        <property name="initialSize" value="${initialSize}"></property>  
+        <!-- 连接池最大数量 -->  
+        <property name="maxActive" value="${maxActive}"></property>  
+        <!-- 最大空闲值.当经过一个高峰时间后，连接池可以慢慢将已经用不到的连接慢慢释放一部分，一直减少到maxIdle为止 -->
+        <property name="maxIdle" value="${maxIdle}"></property>  
+        <!-- 最小空闲值.当空闲的连接数少于阀值时，连接池就会预申请去一些连接，以免洪峰来时来不及申请 -->
+        <property name="minIdle" value="${minIdle}"></property>  
+        <!-- 获取连接最大等待时间 -->  
+        <property name="maxWait" value="${maxWait}"></property>  
+    </bean>  
+    
+    <bean id="dataSource" class="com.yjy.maven.datasource.DynamicDataSource">
+     <!-- 通过key-value的形式来关联数据源 -->
+                <property name="targetDataSources">
+                        <map key-type="java.lang.String">
+                                <entry value-ref="dataSourceA" key="dataSourceA"></entry>
+                                <entry value-ref="dataSourceB" key="dataSourceB"></entry>
+                        </map>
+                </property>
+                <property name="defaultTargetDataSource" ref="dataSourceA" >
+                </property>
+    </bean>
+
+    <!-- spring和MyBatis完美整合，不需要mybatis的配置映射文件 -->  
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">  
+        <property name="dataSource" ref="dataSource" />  
+        <!-- 自动扫描mapping.xml文件 -->  
+        <property name="mapperLocations" value="classpath:com/yjy/maven/mapping/*.xml"></property>  
+    </bean>  
+  
+    <!-- DAO接口所在包名，Spring会自动查找其下的类 -->  
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">  
+        <property name="basePackage" value="com.yjy.maven.dao" />  
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>  
+    </bean>  
+  
+    <!-- (事务管理)transaction manager, use JtaTransactionManager for global tx -->  
+    <bean id="transactionManager"  
+        class="org.springframework.jdbc.datasource.DataSourceTransactionManager">  
+        <property name="dataSource" ref="dataSource" />  
+    </bean> 
+     
+    <bean id="jedisPoolConfig" class="redis.clients.jedis.JedisPoolConfig">    
+       <property name="maxTotal" value="2048" />      
+       <property name="maxIdle" value="200" />      
+       <property name="numTestsPerEvictionRun" value="1024"/>      
+       <property name="timeBetweenEvictionRunsMillis" value="30000" />      
+       <property name="minEvictableIdleTimeMillis" value="-1" />      
+       <property name="softMinEvictableIdleTimeMillis" value="10000" />      
+       <property name="maxWaitMillis" value="1500"/>      
+       <property name="testOnBorrow" value="true" />      
+       <property name="testWhileIdle" value="true"/>      
+       <property name="testOnReturn" value="false"/>      
+       <property name="jmxEnabled" value="true"/>      
+       <property name="blockWhenExhausted" value="false"/>     
+    </bean>    
+    
+    <bean id="shardedJedisPool" class="redis.clients.jedis.ShardedJedisPool">    
+        <constructor-arg index="0" ref="jedisPoolConfig" />    
+        <constructor-arg index="1">    
+            <list>    
+                <bean class="redis.clients.jedis.JedisShardInfo">    
+                    <constructor-arg name="host" value="127.0.0.1" />    
+                    <constructor-arg name="port" value="6379" />    
+                    <constructor-arg name="timeout" value="10000" />    
+                </bean>    
+            </list>    
+        </constructor-arg>    
+    </bean>    
+    <bean id="redisDataSource" class="com.yjy.maven.utils.RedisDataSourceImpl">    
+        <property name="shardedJedisPool" ref="shardedJedisPool"></property>    
+    </bean>    
+    <bean id="redisClientTemplate" class="com.yjy.maven.utils.RedisClientTemplate">    
+        <property name="redisDataSource" ref="redisDataSource"></property>    
+    </bean>  
+
+</beans> 

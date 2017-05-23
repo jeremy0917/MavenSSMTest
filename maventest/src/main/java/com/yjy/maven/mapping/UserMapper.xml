@@ -1,0 +1,874 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yjy.maven.dao.UserMapper" >
+  <resultMap id="BaseResultMap" type="com.yjy.maven.bean.User" >
+    <id column="USER_ID" property="userId" jdbcType="DECIMAL" />
+    <id column="PARTITION_ID" property="partitionId" jdbcType="DECIMAL" />
+    <result column="CUST_ID" property="custId" jdbcType="DECIMAL" />
+    <result column="USECUST_ID" property="usecustId" jdbcType="DECIMAL" />
+    <result column="EPARCHY_CODE" property="eparchyCode" jdbcType="CHAR" />
+    <result column="CITY_CODE" property="cityCode" jdbcType="CHAR" />
+    <result column="CITY_CODE_A" property="cityCodeA" jdbcType="CHAR" />
+    <result column="USER_PASSWD" property="userPasswd" jdbcType="VARCHAR" />
+    <result column="USER_DIFF_CODE" property="userDiffCode" jdbcType="VARCHAR" />
+    <result column="USER_TYPE_CODE" property="userTypeCode" jdbcType="CHAR" />
+    <result column="USER_TAG_SET" property="userTagSet" jdbcType="VARCHAR" />
+    <result column="USER_STATE_CODESET" property="userStateCodeset" jdbcType="VARCHAR" />
+    <result column="NET_TYPE_CODE" property="netTypeCode" jdbcType="VARCHAR" />
+    <result column="SERIAL_NUMBER" property="serialNumber" jdbcType="VARCHAR" />
+    <result column="CONTRACT_ID" property="contractId" jdbcType="VARCHAR" />
+    <result column="ACCT_TAG" property="acctTag" jdbcType="CHAR" />
+    <result column="PREPAY_TAG" property="prepayTag" jdbcType="CHAR" />
+    <result column="MPUTE_MONTH_FEE" property="mputeMonthFee" jdbcType="CHAR" />
+    <result column="MPUTE_DATE" property="mputeDate" jdbcType="TIMESTAMP" />
+    <result column="FIRST_CALL_TIME" property="firstCallTime" jdbcType="TIMESTAMP" />
+    <result column="LAST_STOP_TIME" property="lastStopTime" jdbcType="TIMESTAMP" />
+    <result column="CHANGEUSER_DATE" property="changeuserDate" jdbcType="TIMESTAMP" />
+    <result column="IN_NET_MODE" property="inNetMode" jdbcType="VARCHAR" />
+    <result column="IN_DATE" property="inDate" jdbcType="TIMESTAMP" />
+    <result column="IN_STAFF_ID" property="inStaffId" jdbcType="CHAR" />
+    <result column="IN_DEPART_ID" property="inDepartId" jdbcType="CHAR" />
+    <result column="OPEN_MODE" property="openMode" jdbcType="CHAR" />
+    <result column="OPEN_DATE" property="openDate" jdbcType="TIMESTAMP" />
+    <result column="OPEN_STAFF_ID" property="openStaffId" jdbcType="CHAR" />
+    <result column="OPEN_DEPART_ID" property="openDepartId" jdbcType="CHAR" />
+    <result column="DEVELOP_STAFF_ID" property="developStaffId" jdbcType="VARCHAR" />
+    <result column="DEVELOP_DATE" property="developDate" jdbcType="TIMESTAMP" />
+    <result column="DEVELOP_DEPART_ID" property="developDepartId" jdbcType="CHAR" />
+    <result column="DEVELOP_CITY_CODE" property="developCityCode" jdbcType="CHAR" />
+    <result column="DEVELOP_EPARCHY_CODE" property="developEparchyCode" jdbcType="CHAR" />
+    <result column="DEVELOP_NO" property="developNo" jdbcType="VARCHAR" />
+    <result column="ASSURE_CUST_ID" property="assureCustId" jdbcType="DECIMAL" />
+    <result column="ASSURE_TYPE_CODE" property="assureTypeCode" jdbcType="CHAR" />
+    <result column="ASSURE_DATE" property="assureDate" jdbcType="TIMESTAMP" />
+    <result column="REMOVE_TAG" property="removeTag" jdbcType="CHAR" />
+    <result column="PRE_DESTROY_TIME" property="preDestroyTime" jdbcType="TIMESTAMP" />
+    <result column="DESTROY_TIME" property="destroyTime" jdbcType="TIMESTAMP" />
+    <result column="REMOVE_EPARCHY_CODE" property="removeEparchyCode" jdbcType="CHAR" />
+    <result column="REMOVE_CITY_CODE" property="removeCityCode" jdbcType="CHAR" />
+    <result column="REMOVE_DEPART_ID" property="removeDepartId" jdbcType="CHAR" />
+    <result column="REMOVE_REASON_CODE" property="removeReasonCode" jdbcType="VARCHAR" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="UPDATE_STAFF_ID" property="updateStaffId" jdbcType="CHAR" />
+    <result column="UPDATE_DEPART_ID" property="updateDepartId" jdbcType="CHAR" />
+    <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+    <result column="RSRV_NUM1" property="rsrvNum1" jdbcType="DECIMAL" />
+    <result column="RSRV_NUM2" property="rsrvNum2" jdbcType="DECIMAL" />
+    <result column="RSRV_NUM3" property="rsrvNum3" jdbcType="DECIMAL" />
+    <result column="RSRV_NUM4" property="rsrvNum4" jdbcType="DECIMAL" />
+    <result column="RSRV_NUM5" property="rsrvNum5" jdbcType="DECIMAL" />
+    <result column="RSRV_STR1" property="rsrvStr1" jdbcType="VARCHAR" />
+    <result column="RSRV_STR2" property="rsrvStr2" jdbcType="VARCHAR" />
+    <result column="RSRV_STR3" property="rsrvStr3" jdbcType="VARCHAR" />
+    <result column="RSRV_STR4" property="rsrvStr4" jdbcType="VARCHAR" />
+    <result column="RSRV_STR5" property="rsrvStr5" jdbcType="VARCHAR" />
+    <result column="RSRV_STR6" property="rsrvStr6" jdbcType="VARCHAR" />
+    <result column="RSRV_STR7" property="rsrvStr7" jdbcType="VARCHAR" />
+    <result column="RSRV_STR8" property="rsrvStr8" jdbcType="VARCHAR" />
+    <result column="RSRV_STR9" property="rsrvStr9" jdbcType="VARCHAR" />
+    <result column="RSRV_STR10" property="rsrvStr10" jdbcType="VARCHAR" />
+    <result column="RSRV_DATE1" property="rsrvDate1" jdbcType="TIMESTAMP" />
+    <result column="RSRV_DATE2" property="rsrvDate2" jdbcType="TIMESTAMP" />
+    <result column="RSRV_DATE3" property="rsrvDate3" jdbcType="TIMESTAMP" />
+    <result column="RSRV_TAG1" property="rsrvTag1" jdbcType="CHAR" />
+    <result column="RSRV_TAG2" property="rsrvTag2" jdbcType="CHAR" />
+    <result column="RSRV_TAG3" property="rsrvTag3" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    USER_ID, PARTITION_ID, CUST_ID, USECUST_ID, EPARCHY_CODE, CITY_CODE, CITY_CODE_A, 
+    USER_PASSWD, USER_DIFF_CODE, USER_TYPE_CODE, USER_TAG_SET, USER_STATE_CODESET, NET_TYPE_CODE, 
+    SERIAL_NUMBER, CONTRACT_ID, ACCT_TAG, PREPAY_TAG, MPUTE_MONTH_FEE, MPUTE_DATE, FIRST_CALL_TIME, 
+    LAST_STOP_TIME, CHANGEUSER_DATE, IN_NET_MODE, IN_DATE, IN_STAFF_ID, IN_DEPART_ID, 
+    OPEN_MODE, OPEN_DATE, OPEN_STAFF_ID, OPEN_DEPART_ID, DEVELOP_STAFF_ID, DEVELOP_DATE, 
+    DEVELOP_DEPART_ID, DEVELOP_CITY_CODE, DEVELOP_EPARCHY_CODE, DEVELOP_NO, ASSURE_CUST_ID, 
+    ASSURE_TYPE_CODE, ASSURE_DATE, REMOVE_TAG, PRE_DESTROY_TIME, DESTROY_TIME, REMOVE_EPARCHY_CODE, 
+    REMOVE_CITY_CODE, REMOVE_DEPART_ID, REMOVE_REASON_CODE, UPDATE_TIME, UPDATE_STAFF_ID, 
+    UPDATE_DEPART_ID, REMARK, RSRV_NUM1, RSRV_NUM2, RSRV_NUM3, RSRV_NUM4, RSRV_NUM5, 
+    RSRV_STR1, RSRV_STR2, RSRV_STR3, RSRV_STR4, RSRV_STR5, RSRV_STR6, RSRV_STR7, RSRV_STR8, 
+    RSRV_STR9, RSRV_STR10, RSRV_DATE1, RSRV_DATE2, RSRV_DATE3, RSRV_TAG1, RSRV_TAG2, 
+    RSRV_TAG3
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="com.yjy.maven.bean.UserKey" >
+    select 
+    <include refid="Base_Column_List" />
+    from TF_F_USER
+    where USER_ID = #{userId,jdbcType=DECIMAL}
+      and PARTITION_ID = #{partitionId,jdbcType=DECIMAL}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="com.yjy.maven.bean.UserKey" >
+    delete from TF_F_USER
+    where USER_ID = #{userId,jdbcType=DECIMAL}
+      and PARTITION_ID = #{partitionId,jdbcType=DECIMAL}
+  </delete>
+  <insert id="insert" parameterType="com.yjy.maven.bean.User" >
+    insert into TF_F_USER (USER_ID, PARTITION_ID, CUST_ID, 
+      USECUST_ID, EPARCHY_CODE, CITY_CODE, 
+      CITY_CODE_A, USER_PASSWD, USER_DIFF_CODE, 
+      USER_TYPE_CODE, USER_TAG_SET, USER_STATE_CODESET, 
+      NET_TYPE_CODE, SERIAL_NUMBER, CONTRACT_ID, 
+      ACCT_TAG, PREPAY_TAG, MPUTE_MONTH_FEE, 
+      MPUTE_DATE, FIRST_CALL_TIME, LAST_STOP_TIME, 
+      CHANGEUSER_DATE, IN_NET_MODE, IN_DATE, 
+      IN_STAFF_ID, IN_DEPART_ID, OPEN_MODE, 
+      OPEN_DATE, OPEN_STAFF_ID, OPEN_DEPART_ID, 
+      DEVELOP_STAFF_ID, DEVELOP_DATE, DEVELOP_DEPART_ID, 
+      DEVELOP_CITY_CODE, DEVELOP_EPARCHY_CODE, DEVELOP_NO, 
+      ASSURE_CUST_ID, ASSURE_TYPE_CODE, ASSURE_DATE, 
+      REMOVE_TAG, PRE_DESTROY_TIME, DESTROY_TIME, 
+      REMOVE_EPARCHY_CODE, REMOVE_CITY_CODE, REMOVE_DEPART_ID, 
+      REMOVE_REASON_CODE, UPDATE_TIME, UPDATE_STAFF_ID, 
+      UPDATE_DEPART_ID, REMARK, RSRV_NUM1, 
+      RSRV_NUM2, RSRV_NUM3, RSRV_NUM4, 
+      RSRV_NUM5, RSRV_STR1, RSRV_STR2, 
+      RSRV_STR3, RSRV_STR4, RSRV_STR5, 
+      RSRV_STR6, RSRV_STR7, RSRV_STR8, 
+      RSRV_STR9, RSRV_STR10, RSRV_DATE1, 
+      RSRV_DATE2, RSRV_DATE3, RSRV_TAG1, 
+      RSRV_TAG2, RSRV_TAG3)
+    values (#{userId,jdbcType=DECIMAL}, #{partitionId,jdbcType=DECIMAL}, #{custId,jdbcType=DECIMAL}, 
+      #{usecustId,jdbcType=DECIMAL}, #{eparchyCode,jdbcType=CHAR}, #{cityCode,jdbcType=CHAR}, 
+      #{cityCodeA,jdbcType=CHAR}, #{userPasswd,jdbcType=VARCHAR}, #{userDiffCode,jdbcType=VARCHAR}, 
+      #{userTypeCode,jdbcType=CHAR}, #{userTagSet,jdbcType=VARCHAR}, #{userStateCodeset,jdbcType=VARCHAR}, 
+      #{netTypeCode,jdbcType=VARCHAR}, #{serialNumber,jdbcType=VARCHAR}, #{contractId,jdbcType=VARCHAR}, 
+      #{acctTag,jdbcType=CHAR}, #{prepayTag,jdbcType=CHAR}, #{mputeMonthFee,jdbcType=CHAR}, 
+      #{mputeDate,jdbcType=TIMESTAMP}, #{firstCallTime,jdbcType=TIMESTAMP}, #{lastStopTime,jdbcType=TIMESTAMP}, 
+      #{changeuserDate,jdbcType=TIMESTAMP}, #{inNetMode,jdbcType=VARCHAR}, #{inDate,jdbcType=TIMESTAMP}, 
+      #{inStaffId,jdbcType=CHAR}, #{inDepartId,jdbcType=CHAR}, #{openMode,jdbcType=CHAR}, 
+      #{openDate,jdbcType=TIMESTAMP}, #{openStaffId,jdbcType=CHAR}, #{openDepartId,jdbcType=CHAR}, 
+      #{developStaffId,jdbcType=VARCHAR}, #{developDate,jdbcType=TIMESTAMP}, #{developDepartId,jdbcType=CHAR}, 
+      #{developCityCode,jdbcType=CHAR}, #{developEparchyCode,jdbcType=CHAR}, #{developNo,jdbcType=VARCHAR}, 
+      #{assureCustId,jdbcType=DECIMAL}, #{assureTypeCode,jdbcType=CHAR}, #{assureDate,jdbcType=TIMESTAMP}, 
+      #{removeTag,jdbcType=CHAR}, #{preDestroyTime,jdbcType=TIMESTAMP}, #{destroyTime,jdbcType=TIMESTAMP}, 
+      #{removeEparchyCode,jdbcType=CHAR}, #{removeCityCode,jdbcType=CHAR}, #{removeDepartId,jdbcType=CHAR}, 
+      #{removeReasonCode,jdbcType=VARCHAR}, #{updateTime,jdbcType=TIMESTAMP}, #{updateStaffId,jdbcType=CHAR}, 
+      #{updateDepartId,jdbcType=CHAR}, #{remark,jdbcType=VARCHAR}, #{rsrvNum1,jdbcType=DECIMAL}, 
+      #{rsrvNum2,jdbcType=DECIMAL}, #{rsrvNum3,jdbcType=DECIMAL}, #{rsrvNum4,jdbcType=DECIMAL}, 
+      #{rsrvNum5,jdbcType=DECIMAL}, #{rsrvStr1,jdbcType=VARCHAR}, #{rsrvStr2,jdbcType=VARCHAR}, 
+      #{rsrvStr3,jdbcType=VARCHAR}, #{rsrvStr4,jdbcType=VARCHAR}, #{rsrvStr5,jdbcType=VARCHAR}, 
+      #{rsrvStr6,jdbcType=VARCHAR}, #{rsrvStr7,jdbcType=VARCHAR}, #{rsrvStr8,jdbcType=VARCHAR}, 
+      #{rsrvStr9,jdbcType=VARCHAR}, #{rsrvStr10,jdbcType=VARCHAR}, #{rsrvDate1,jdbcType=TIMESTAMP}, 
+      #{rsrvDate2,jdbcType=TIMESTAMP}, #{rsrvDate3,jdbcType=TIMESTAMP}, #{rsrvTag1,jdbcType=CHAR}, 
+      #{rsrvTag2,jdbcType=CHAR}, #{rsrvTag3,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.yjy.maven.bean.User" >
+    insert into TF_F_USER
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        USER_ID,
+      </if>
+      <if test="partitionId != null" >
+        PARTITION_ID,
+      </if>
+      <if test="custId != null" >
+        CUST_ID,
+      </if>
+      <if test="usecustId != null" >
+        USECUST_ID,
+      </if>
+      <if test="eparchyCode != null" >
+        EPARCHY_CODE,
+      </if>
+      <if test="cityCode != null" >
+        CITY_CODE,
+      </if>
+      <if test="cityCodeA != null" >
+        CITY_CODE_A,
+      </if>
+      <if test="userPasswd != null" >
+        USER_PASSWD,
+      </if>
+      <if test="userDiffCode != null" >
+        USER_DIFF_CODE,
+      </if>
+      <if test="userTypeCode != null" >
+        USER_TYPE_CODE,
+      </if>
+      <if test="userTagSet != null" >
+        USER_TAG_SET,
+      </if>
+      <if test="userStateCodeset != null" >
+        USER_STATE_CODESET,
+      </if>
+      <if test="netTypeCode != null" >
+        NET_TYPE_CODE,
+      </if>
+      <if test="serialNumber != null" >
+        SERIAL_NUMBER,
+      </if>
+      <if test="contractId != null" >
+        CONTRACT_ID,
+      </if>
+      <if test="acctTag != null" >
+        ACCT_TAG,
+      </if>
+      <if test="prepayTag != null" >
+        PREPAY_TAG,
+      </if>
+      <if test="mputeMonthFee != null" >
+        MPUTE_MONTH_FEE,
+      </if>
+      <if test="mputeDate != null" >
+        MPUTE_DATE,
+      </if>
+      <if test="firstCallTime != null" >
+        FIRST_CALL_TIME,
+      </if>
+      <if test="lastStopTime != null" >
+        LAST_STOP_TIME,
+      </if>
+      <if test="changeuserDate != null" >
+        CHANGEUSER_DATE,
+      </if>
+      <if test="inNetMode != null" >
+        IN_NET_MODE,
+      </if>
+      <if test="inDate != null" >
+        IN_DATE,
+      </if>
+      <if test="inStaffId != null" >
+        IN_STAFF_ID,
+      </if>
+      <if test="inDepartId != null" >
+        IN_DEPART_ID,
+      </if>
+      <if test="openMode != null" >
+        OPEN_MODE,
+      </if>
+      <if test="openDate != null" >
+        OPEN_DATE,
+      </if>
+      <if test="openStaffId != null" >
+        OPEN_STAFF_ID,
+      </if>
+      <if test="openDepartId != null" >
+        OPEN_DEPART_ID,
+      </if>
+      <if test="developStaffId != null" >
+        DEVELOP_STAFF_ID,
+      </if>
+      <if test="developDate != null" >
+        DEVELOP_DATE,
+      </if>
+      <if test="developDepartId != null" >
+        DEVELOP_DEPART_ID,
+      </if>
+      <if test="developCityCode != null" >
+        DEVELOP_CITY_CODE,
+      </if>
+      <if test="developEparchyCode != null" >
+        DEVELOP_EPARCHY_CODE,
+      </if>
+      <if test="developNo != null" >
+        DEVELOP_NO,
+      </if>
+      <if test="assureCustId != null" >
+        ASSURE_CUST_ID,
+      </if>
+      <if test="assureTypeCode != null" >
+        ASSURE_TYPE_CODE,
+      </if>
+      <if test="assureDate != null" >
+        ASSURE_DATE,
+      </if>
+      <if test="removeTag != null" >
+        REMOVE_TAG,
+      </if>
+      <if test="preDestroyTime != null" >
+        PRE_DESTROY_TIME,
+      </if>
+      <if test="destroyTime != null" >
+        DESTROY_TIME,
+      </if>
+      <if test="removeEparchyCode != null" >
+        REMOVE_EPARCHY_CODE,
+      </if>
+      <if test="removeCityCode != null" >
+        REMOVE_CITY_CODE,
+      </if>
+      <if test="removeDepartId != null" >
+        REMOVE_DEPART_ID,
+      </if>
+      <if test="removeReasonCode != null" >
+        REMOVE_REASON_CODE,
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME,
+      </if>
+      <if test="updateStaffId != null" >
+        UPDATE_STAFF_ID,
+      </if>
+      <if test="updateDepartId != null" >
+        UPDATE_DEPART_ID,
+      </if>
+      <if test="remark != null" >
+        REMARK,
+      </if>
+      <if test="rsrvNum1 != null" >
+        RSRV_NUM1,
+      </if>
+      <if test="rsrvNum2 != null" >
+        RSRV_NUM2,
+      </if>
+      <if test="rsrvNum3 != null" >
+        RSRV_NUM3,
+      </if>
+      <if test="rsrvNum4 != null" >
+        RSRV_NUM4,
+      </if>
+      <if test="rsrvNum5 != null" >
+        RSRV_NUM5,
+      </if>
+      <if test="rsrvStr1 != null" >
+        RSRV_STR1,
+      </if>
+      <if test="rsrvStr2 != null" >
+        RSRV_STR2,
+      </if>
+      <if test="rsrvStr3 != null" >
+        RSRV_STR3,
+      </if>
+      <if test="rsrvStr4 != null" >
+        RSRV_STR4,
+      </if>
+      <if test="rsrvStr5 != null" >
+        RSRV_STR5,
+      </if>
+      <if test="rsrvStr6 != null" >
+        RSRV_STR6,
+      </if>
+      <if test="rsrvStr7 != null" >
+        RSRV_STR7,
+      </if>
+      <if test="rsrvStr8 != null" >
+        RSRV_STR8,
+      </if>
+      <if test="rsrvStr9 != null" >
+        RSRV_STR9,
+      </if>
+      <if test="rsrvStr10 != null" >
+        RSRV_STR10,
+      </if>
+      <if test="rsrvDate1 != null" >
+        RSRV_DATE1,
+      </if>
+      <if test="rsrvDate2 != null" >
+        RSRV_DATE2,
+      </if>
+      <if test="rsrvDate3 != null" >
+        RSRV_DATE3,
+      </if>
+      <if test="rsrvTag1 != null" >
+        RSRV_TAG1,
+      </if>
+      <if test="rsrvTag2 != null" >
+        RSRV_TAG2,
+      </if>
+      <if test="rsrvTag3 != null" >
+        RSRV_TAG3,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="userId != null" >
+        #{userId,jdbcType=DECIMAL},
+      </if>
+      <if test="partitionId != null" >
+        #{partitionId,jdbcType=DECIMAL},
+      </if>
+      <if test="custId != null" >
+        #{custId,jdbcType=DECIMAL},
+      </if>
+      <if test="usecustId != null" >
+        #{usecustId,jdbcType=DECIMAL},
+      </if>
+      <if test="eparchyCode != null" >
+        #{eparchyCode,jdbcType=CHAR},
+      </if>
+      <if test="cityCode != null" >
+        #{cityCode,jdbcType=CHAR},
+      </if>
+      <if test="cityCodeA != null" >
+        #{cityCodeA,jdbcType=CHAR},
+      </if>
+      <if test="userPasswd != null" >
+        #{userPasswd,jdbcType=VARCHAR},
+      </if>
+      <if test="userDiffCode != null" >
+        #{userDiffCode,jdbcType=VARCHAR},
+      </if>
+      <if test="userTypeCode != null" >
+        #{userTypeCode,jdbcType=CHAR},
+      </if>
+      <if test="userTagSet != null" >
+        #{userTagSet,jdbcType=VARCHAR},
+      </if>
+      <if test="userStateCodeset != null" >
+        #{userStateCodeset,jdbcType=VARCHAR},
+      </if>
+      <if test="netTypeCode != null" >
+        #{netTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="serialNumber != null" >
+        #{serialNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="contractId != null" >
+        #{contractId,jdbcType=VARCHAR},
+      </if>
+      <if test="acctTag != null" >
+        #{acctTag,jdbcType=CHAR},
+      </if>
+      <if test="prepayTag != null" >
+        #{prepayTag,jdbcType=CHAR},
+      </if>
+      <if test="mputeMonthFee != null" >
+        #{mputeMonthFee,jdbcType=CHAR},
+      </if>
+      <if test="mputeDate != null" >
+        #{mputeDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="firstCallTime != null" >
+        #{firstCallTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastStopTime != null" >
+        #{lastStopTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="changeuserDate != null" >
+        #{changeuserDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="inNetMode != null" >
+        #{inNetMode,jdbcType=VARCHAR},
+      </if>
+      <if test="inDate != null" >
+        #{inDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="inStaffId != null" >
+        #{inStaffId,jdbcType=CHAR},
+      </if>
+      <if test="inDepartId != null" >
+        #{inDepartId,jdbcType=CHAR},
+      </if>
+      <if test="openMode != null" >
+        #{openMode,jdbcType=CHAR},
+      </if>
+      <if test="openDate != null" >
+        #{openDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="openStaffId != null" >
+        #{openStaffId,jdbcType=CHAR},
+      </if>
+      <if test="openDepartId != null" >
+        #{openDepartId,jdbcType=CHAR},
+      </if>
+      <if test="developStaffId != null" >
+        #{developStaffId,jdbcType=VARCHAR},
+      </if>
+      <if test="developDate != null" >
+        #{developDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="developDepartId != null" >
+        #{developDepartId,jdbcType=CHAR},
+      </if>
+      <if test="developCityCode != null" >
+        #{developCityCode,jdbcType=CHAR},
+      </if>
+      <if test="developEparchyCode != null" >
+        #{developEparchyCode,jdbcType=CHAR},
+      </if>
+      <if test="developNo != null" >
+        #{developNo,jdbcType=VARCHAR},
+      </if>
+      <if test="assureCustId != null" >
+        #{assureCustId,jdbcType=DECIMAL},
+      </if>
+      <if test="assureTypeCode != null" >
+        #{assureTypeCode,jdbcType=CHAR},
+      </if>
+      <if test="assureDate != null" >
+        #{assureDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="removeTag != null" >
+        #{removeTag,jdbcType=CHAR},
+      </if>
+      <if test="preDestroyTime != null" >
+        #{preDestroyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="destroyTime != null" >
+        #{destroyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="removeEparchyCode != null" >
+        #{removeEparchyCode,jdbcType=CHAR},
+      </if>
+      <if test="removeCityCode != null" >
+        #{removeCityCode,jdbcType=CHAR},
+      </if>
+      <if test="removeDepartId != null" >
+        #{removeDepartId,jdbcType=CHAR},
+      </if>
+      <if test="removeReasonCode != null" >
+        #{removeReasonCode,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateStaffId != null" >
+        #{updateStaffId,jdbcType=CHAR},
+      </if>
+      <if test="updateDepartId != null" >
+        #{updateDepartId,jdbcType=CHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvNum1 != null" >
+        #{rsrvNum1,jdbcType=DECIMAL},
+      </if>
+      <if test="rsrvNum2 != null" >
+        #{rsrvNum2,jdbcType=DECIMAL},
+      </if>
+      <if test="rsrvNum3 != null" >
+        #{rsrvNum3,jdbcType=DECIMAL},
+      </if>
+      <if test="rsrvNum4 != null" >
+        #{rsrvNum4,jdbcType=DECIMAL},
+      </if>
+      <if test="rsrvNum5 != null" >
+        #{rsrvNum5,jdbcType=DECIMAL},
+      </if>
+      <if test="rsrvStr1 != null" >
+        #{rsrvStr1,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvStr2 != null" >
+        #{rsrvStr2,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvStr3 != null" >
+        #{rsrvStr3,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvStr4 != null" >
+        #{rsrvStr4,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvStr5 != null" >
+        #{rsrvStr5,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvStr6 != null" >
+        #{rsrvStr6,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvStr7 != null" >
+        #{rsrvStr7,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvStr8 != null" >
+        #{rsrvStr8,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvStr9 != null" >
+        #{rsrvStr9,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvStr10 != null" >
+        #{rsrvStr10,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvDate1 != null" >
+        #{rsrvDate1,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rsrvDate2 != null" >
+        #{rsrvDate2,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rsrvDate3 != null" >
+        #{rsrvDate3,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rsrvTag1 != null" >
+        #{rsrvTag1,jdbcType=CHAR},
+      </if>
+      <if test="rsrvTag2 != null" >
+        #{rsrvTag2,jdbcType=CHAR},
+      </if>
+      <if test="rsrvTag3 != null" >
+        #{rsrvTag3,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.yjy.maven.bean.User" >
+    update TF_F_USER
+    <set >
+      <if test="custId != null" >
+        CUST_ID = #{custId,jdbcType=DECIMAL},
+      </if>
+      <if test="usecustId != null" >
+        USECUST_ID = #{usecustId,jdbcType=DECIMAL},
+      </if>
+      <if test="eparchyCode != null" >
+        EPARCHY_CODE = #{eparchyCode,jdbcType=CHAR},
+      </if>
+      <if test="cityCode != null" >
+        CITY_CODE = #{cityCode,jdbcType=CHAR},
+      </if>
+      <if test="cityCodeA != null" >
+        CITY_CODE_A = #{cityCodeA,jdbcType=CHAR},
+      </if>
+      <if test="userPasswd != null" >
+        USER_PASSWD = #{userPasswd,jdbcType=VARCHAR},
+      </if>
+      <if test="userDiffCode != null" >
+        USER_DIFF_CODE = #{userDiffCode,jdbcType=VARCHAR},
+      </if>
+      <if test="userTypeCode != null" >
+        USER_TYPE_CODE = #{userTypeCode,jdbcType=CHAR},
+      </if>
+      <if test="userTagSet != null" >
+        USER_TAG_SET = #{userTagSet,jdbcType=VARCHAR},
+      </if>
+      <if test="userStateCodeset != null" >
+        USER_STATE_CODESET = #{userStateCodeset,jdbcType=VARCHAR},
+      </if>
+      <if test="netTypeCode != null" >
+        NET_TYPE_CODE = #{netTypeCode,jdbcType=VARCHAR},
+      </if>
+      <if test="serialNumber != null" >
+        SERIAL_NUMBER = #{serialNumber,jdbcType=VARCHAR},
+      </if>
+      <if test="contractId != null" >
+        CONTRACT_ID = #{contractId,jdbcType=VARCHAR},
+      </if>
+      <if test="acctTag != null" >
+        ACCT_TAG = #{acctTag,jdbcType=CHAR},
+      </if>
+      <if test="prepayTag != null" >
+        PREPAY_TAG = #{prepayTag,jdbcType=CHAR},
+      </if>
+      <if test="mputeMonthFee != null" >
+        MPUTE_MONTH_FEE = #{mputeMonthFee,jdbcType=CHAR},
+      </if>
+      <if test="mputeDate != null" >
+        MPUTE_DATE = #{mputeDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="firstCallTime != null" >
+        FIRST_CALL_TIME = #{firstCallTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastStopTime != null" >
+        LAST_STOP_TIME = #{lastStopTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="changeuserDate != null" >
+        CHANGEUSER_DATE = #{changeuserDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="inNetMode != null" >
+        IN_NET_MODE = #{inNetMode,jdbcType=VARCHAR},
+      </if>
+      <if test="inDate != null" >
+        IN_DATE = #{inDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="inStaffId != null" >
+        IN_STAFF_ID = #{inStaffId,jdbcType=CHAR},
+      </if>
+      <if test="inDepartId != null" >
+        IN_DEPART_ID = #{inDepartId,jdbcType=CHAR},
+      </if>
+      <if test="openMode != null" >
+        OPEN_MODE = #{openMode,jdbcType=CHAR},
+      </if>
+      <if test="openDate != null" >
+        OPEN_DATE = #{openDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="openStaffId != null" >
+        OPEN_STAFF_ID = #{openStaffId,jdbcType=CHAR},
+      </if>
+      <if test="openDepartId != null" >
+        OPEN_DEPART_ID = #{openDepartId,jdbcType=CHAR},
+      </if>
+      <if test="developStaffId != null" >
+        DEVELOP_STAFF_ID = #{developStaffId,jdbcType=VARCHAR},
+      </if>
+      <if test="developDate != null" >
+        DEVELOP_DATE = #{developDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="developDepartId != null" >
+        DEVELOP_DEPART_ID = #{developDepartId,jdbcType=CHAR},
+      </if>
+      <if test="developCityCode != null" >
+        DEVELOP_CITY_CODE = #{developCityCode,jdbcType=CHAR},
+      </if>
+      <if test="developEparchyCode != null" >
+        DEVELOP_EPARCHY_CODE = #{developEparchyCode,jdbcType=CHAR},
+      </if>
+      <if test="developNo != null" >
+        DEVELOP_NO = #{developNo,jdbcType=VARCHAR},
+      </if>
+      <if test="assureCustId != null" >
+        ASSURE_CUST_ID = #{assureCustId,jdbcType=DECIMAL},
+      </if>
+      <if test="assureTypeCode != null" >
+        ASSURE_TYPE_CODE = #{assureTypeCode,jdbcType=CHAR},
+      </if>
+      <if test="assureDate != null" >
+        ASSURE_DATE = #{assureDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="removeTag != null" >
+        REMOVE_TAG = #{removeTag,jdbcType=CHAR},
+      </if>
+      <if test="preDestroyTime != null" >
+        PRE_DESTROY_TIME = #{preDestroyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="destroyTime != null" >
+        DESTROY_TIME = #{destroyTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="removeEparchyCode != null" >
+        REMOVE_EPARCHY_CODE = #{removeEparchyCode,jdbcType=CHAR},
+      </if>
+      <if test="removeCityCode != null" >
+        REMOVE_CITY_CODE = #{removeCityCode,jdbcType=CHAR},
+      </if>
+      <if test="removeDepartId != null" >
+        REMOVE_DEPART_ID = #{removeDepartId,jdbcType=CHAR},
+      </if>
+      <if test="removeReasonCode != null" >
+        REMOVE_REASON_CODE = #{removeReasonCode,jdbcType=VARCHAR},
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateStaffId != null" >
+        UPDATE_STAFF_ID = #{updateStaffId,jdbcType=CHAR},
+      </if>
+      <if test="updateDepartId != null" >
+        UPDATE_DEPART_ID = #{updateDepartId,jdbcType=CHAR},
+      </if>
+      <if test="remark != null" >
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvNum1 != null" >
+        RSRV_NUM1 = #{rsrvNum1,jdbcType=DECIMAL},
+      </if>
+      <if test="rsrvNum2 != null" >
+        RSRV_NUM2 = #{rsrvNum2,jdbcType=DECIMAL},
+      </if>
+      <if test="rsrvNum3 != null" >
+        RSRV_NUM3 = #{rsrvNum3,jdbcType=DECIMAL},
+      </if>
+      <if test="rsrvNum4 != null" >
+        RSRV_NUM4 = #{rsrvNum4,jdbcType=DECIMAL},
+      </if>
+      <if test="rsrvNum5 != null" >
+        RSRV_NUM5 = #{rsrvNum5,jdbcType=DECIMAL},
+      </if>
+      <if test="rsrvStr1 != null" >
+        RSRV_STR1 = #{rsrvStr1,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvStr2 != null" >
+        RSRV_STR2 = #{rsrvStr2,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvStr3 != null" >
+        RSRV_STR3 = #{rsrvStr3,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvStr4 != null" >
+        RSRV_STR4 = #{rsrvStr4,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvStr5 != null" >
+        RSRV_STR5 = #{rsrvStr5,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvStr6 != null" >
+        RSRV_STR6 = #{rsrvStr6,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvStr7 != null" >
+        RSRV_STR7 = #{rsrvStr7,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvStr8 != null" >
+        RSRV_STR8 = #{rsrvStr8,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvStr9 != null" >
+        RSRV_STR9 = #{rsrvStr9,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvStr10 != null" >
+        RSRV_STR10 = #{rsrvStr10,jdbcType=VARCHAR},
+      </if>
+      <if test="rsrvDate1 != null" >
+        RSRV_DATE1 = #{rsrvDate1,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rsrvDate2 != null" >
+        RSRV_DATE2 = #{rsrvDate2,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rsrvDate3 != null" >
+        RSRV_DATE3 = #{rsrvDate3,jdbcType=TIMESTAMP},
+      </if>
+      <if test="rsrvTag1 != null" >
+        RSRV_TAG1 = #{rsrvTag1,jdbcType=CHAR},
+      </if>
+      <if test="rsrvTag2 != null" >
+        RSRV_TAG2 = #{rsrvTag2,jdbcType=CHAR},
+      </if>
+      <if test="rsrvTag3 != null" >
+        RSRV_TAG3 = #{rsrvTag3,jdbcType=CHAR},
+      </if>
+    </set>
+    where USER_ID = #{userId,jdbcType=DECIMAL}
+      and PARTITION_ID = #{partitionId,jdbcType=DECIMAL}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.yjy.maven.bean.User" >
+    update TF_F_USER
+    set CUST_ID = #{custId,jdbcType=DECIMAL},
+      USECUST_ID = #{usecustId,jdbcType=DECIMAL},
+      EPARCHY_CODE = #{eparchyCode,jdbcType=CHAR},
+      CITY_CODE = #{cityCode,jdbcType=CHAR},
+      CITY_CODE_A = #{cityCodeA,jdbcType=CHAR},
+      USER_PASSWD = #{userPasswd,jdbcType=VARCHAR},
+      USER_DIFF_CODE = #{userDiffCode,jdbcType=VARCHAR},
+      USER_TYPE_CODE = #{userTypeCode,jdbcType=CHAR},
+      USER_TAG_SET = #{userTagSet,jdbcType=VARCHAR},
+      USER_STATE_CODESET = #{userStateCodeset,jdbcType=VARCHAR},
+      NET_TYPE_CODE = #{netTypeCode,jdbcType=VARCHAR},
+      SERIAL_NUMBER = #{serialNumber,jdbcType=VARCHAR},
+      CONTRACT_ID = #{contractId,jdbcType=VARCHAR},
+      ACCT_TAG = #{acctTag,jdbcType=CHAR},
+      PREPAY_TAG = #{prepayTag,jdbcType=CHAR},
+      MPUTE_MONTH_FEE = #{mputeMonthFee,jdbcType=CHAR},
+      MPUTE_DATE = #{mputeDate,jdbcType=TIMESTAMP},
+      FIRST_CALL_TIME = #{firstCallTime,jdbcType=TIMESTAMP},
+      LAST_STOP_TIME = #{lastStopTime,jdbcType=TIMESTAMP},
+      CHANGEUSER_DATE = #{changeuserDate,jdbcType=TIMESTAMP},
+      IN_NET_MODE = #{inNetMode,jdbcType=VARCHAR},
+      IN_DATE = #{inDate,jdbcType=TIMESTAMP},
+      IN_STAFF_ID = #{inStaffId,jdbcType=CHAR},
+      IN_DEPART_ID = #{inDepartId,jdbcType=CHAR},
+      OPEN_MODE = #{openMode,jdbcType=CHAR},
+      OPEN_DATE = #{openDate,jdbcType=TIMESTAMP},
+      OPEN_STAFF_ID = #{openStaffId,jdbcType=CHAR},
+      OPEN_DEPART_ID = #{openDepartId,jdbcType=CHAR},
+      DEVELOP_STAFF_ID = #{developStaffId,jdbcType=VARCHAR},
+      DEVELOP_DATE = #{developDate,jdbcType=TIMESTAMP},
+      DEVELOP_DEPART_ID = #{developDepartId,jdbcType=CHAR},
+      DEVELOP_CITY_CODE = #{developCityCode,jdbcType=CHAR},
+      DEVELOP_EPARCHY_CODE = #{developEparchyCode,jdbcType=CHAR},
+      DEVELOP_NO = #{developNo,jdbcType=VARCHAR},
+      ASSURE_CUST_ID = #{assureCustId,jdbcType=DECIMAL},
+      ASSURE_TYPE_CODE = #{assureTypeCode,jdbcType=CHAR},
+      ASSURE_DATE = #{assureDate,jdbcType=TIMESTAMP},
+      REMOVE_TAG = #{removeTag,jdbcType=CHAR},
+      PRE_DESTROY_TIME = #{preDestroyTime,jdbcType=TIMESTAMP},
+      DESTROY_TIME = #{destroyTime,jdbcType=TIMESTAMP},
+      REMOVE_EPARCHY_CODE = #{removeEparchyCode,jdbcType=CHAR},
+      REMOVE_CITY_CODE = #{removeCityCode,jdbcType=CHAR},
+      REMOVE_DEPART_ID = #{removeDepartId,jdbcType=CHAR},
+      REMOVE_REASON_CODE = #{removeReasonCode,jdbcType=VARCHAR},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      UPDATE_STAFF_ID = #{updateStaffId,jdbcType=CHAR},
+      UPDATE_DEPART_ID = #{updateDepartId,jdbcType=CHAR},
+      REMARK = #{remark,jdbcType=VARCHAR},
+      RSRV_NUM1 = #{rsrvNum1,jdbcType=DECIMAL},
+      RSRV_NUM2 = #{rsrvNum2,jdbcType=DECIMAL},
+      RSRV_NUM3 = #{rsrvNum3,jdbcType=DECIMAL},
+      RSRV_NUM4 = #{rsrvNum4,jdbcType=DECIMAL},
+      RSRV_NUM5 = #{rsrvNum5,jdbcType=DECIMAL},
+      RSRV_STR1 = #{rsrvStr1,jdbcType=VARCHAR},
+      RSRV_STR2 = #{rsrvStr2,jdbcType=VARCHAR},
+      RSRV_STR3 = #{rsrvStr3,jdbcType=VARCHAR},
+      RSRV_STR4 = #{rsrvStr4,jdbcType=VARCHAR},
+      RSRV_STR5 = #{rsrvStr5,jdbcType=VARCHAR},
+      RSRV_STR6 = #{rsrvStr6,jdbcType=VARCHAR},
+      RSRV_STR7 = #{rsrvStr7,jdbcType=VARCHAR},
+      RSRV_STR8 = #{rsrvStr8,jdbcType=VARCHAR},
+      RSRV_STR9 = #{rsrvStr9,jdbcType=VARCHAR},
+      RSRV_STR10 = #{rsrvStr10,jdbcType=VARCHAR},
+      RSRV_DATE1 = #{rsrvDate1,jdbcType=TIMESTAMP},
+      RSRV_DATE2 = #{rsrvDate2,jdbcType=TIMESTAMP},
+      RSRV_DATE3 = #{rsrvDate3,jdbcType=TIMESTAMP},
+      RSRV_TAG1 = #{rsrvTag1,jdbcType=CHAR},
+      RSRV_TAG2 = #{rsrvTag2,jdbcType=CHAR},
+      RSRV_TAG3 = #{rsrvTag3,jdbcType=CHAR}
+    where USER_ID = #{userId,jdbcType=DECIMAL}
+      and PARTITION_ID = #{partitionId,jdbcType=DECIMAL}
+  </update>
+</mapper>
