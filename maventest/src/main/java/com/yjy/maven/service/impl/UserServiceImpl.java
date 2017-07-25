@@ -34,5 +34,10 @@ public class UserServiceImpl implements IUserService{
 		userBill.setUserId(userId);
 		return this.userBillDao.selectBillByUserId(userBill);
 	}
+
+	@Override
+	public int insertUserBill(UserBill userBill) {
+		return this.userBillDao.insert(userBill);
+	}
 	
 }

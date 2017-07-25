@@ -7,4 +7,6 @@ public interface IUserService {
 	public User getUserByUserId(long userId);
 	
 	public UserBill getUserBillByUserId(long userId);
+	
+	public int insertUserBill(UserBill userBill);
 }
